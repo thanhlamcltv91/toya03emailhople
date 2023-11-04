@@ -32,13 +32,34 @@ get_name_in_email([None, 'abb#ccc'])                      | ['ERROR invaid email
 
 #endregion debai
 
+import re
+
 
 #region bailam
 def get_name_in_email(email_list):
-  return 'todo'
+  #su dung ham regex de kiem tra email co hop le khong
+  valid_email_regex = re.compile(
+      '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$')
+  output = []
+
+  for email in email_list:
+    if email is None:
+      output.append('ERROR invaid email')
+    elif not valid_email_regex.match(email):
+      output.append('ERROR invaid email')
+    else:
+      output.append(email.split('@')[0])
+  return output
 
 
-#
 if __name__ == '__main__':
   pass
 #endregion bailam
+
+#test case
+print(get_name_in_email(['ai-btx@gmail.com']))
+print(get_name_in_email(['user1@gmail.com', 'user2@gmail.com']))
+print(get_name_in_email([]))
+print(get_name_in_email(['abb#ccc']))
+print(get_name_in_email([None]))
+print(get_name_in_email([None, 'abb#ccc']))
