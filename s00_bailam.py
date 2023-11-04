@@ -34,12 +34,10 @@ get_name_in_email([None, 'abb#ccc'])                      | ['ERROR invaid email
 
 import re
 
-
 #region bailam
 def get_name_in_email(email_list):
   #su dung ham regex de kiem tra email co hop le khong
-  valid_email_regex = re.compile(
-      '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$')
+  valid_email_regex = re.compile('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$')
   output = []
 
   for email in email_list:
